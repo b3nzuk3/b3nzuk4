@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { SendIcon, GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react'
+import { SendIcon, MessageCircleIcon } from 'lucide-react'
 export const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null)
   const [sending, setSending] = useState(false)
@@ -14,10 +14,10 @@ export const Contact: React.FC = () => {
     setError(null)
     emailjs
       .sendForm(
-        'service_nhw3h48', // Your EmailJS service ID
-        'template_t5yw5f8', // Your EmailJS template ID
+        'service_2e2bxme', // Your EmailJS service ID
+        'template_89xpj5o', // Your EmailJS template ID  
         form.current!,
-        'OTamynEO87Edj7m-a' // Your EmailJS public key
+        'gMNqDtyB168qX2uuD' // Your EmailJS public key
       )
       .then(
         () => {
@@ -96,7 +96,7 @@ export const Contact: React.FC = () => {
               <input
                 type="text"
                 id="subject"
-                name="title"
+                name="subject"
                 className="w-full p-3 bg-transparent border border-gray-300 dark:border-gray-700 rounded-md text-black dark:text-white focus:neon-border-green"
                 placeholder="Project Inquiry"
                 required
@@ -145,19 +145,9 @@ export const Contact: React.FC = () => {
             </h3>
             <div className="flex justify-center space-x-6">
               <SocialLink
-                icon={<GithubIcon />}
-                href="https://github.com/"
-                label="GitHub"
-              />
-              <SocialLink
-                icon={<LinkedinIcon />}
-                href="https://linkedin.com/"
-                label="LinkedIn"
-              />
-              <SocialLink
-                icon={<TwitterIcon />}
-                href="https://twitter.com/"
-                label="Twitter"
+                icon={<MessageCircleIcon />}
+                href="https://wa.me/254716848136"
+                label="WhatsApp"
               />
             </div>
           </div>

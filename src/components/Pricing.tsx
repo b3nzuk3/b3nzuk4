@@ -9,14 +9,14 @@ export const Pricing: React.FC = () => {
     features: ['1-5 static pages (Home, About, Services, Contact)', 'Mobile-responsive', 'Basic SEO', 'Contact form', 'No database']
   }, {
     name: 'Standard Website',
-    price: '$400-$800',
+    price: '$1200-$1800',
     time: '5-10 days',
     examples: 'Blog, NGO site, small e-commerce, business site with CMS',
     features: ['5-15 pages', 'CMS (WordPress, Sanity, etc.)', 'Blog or basic product listing', 'User authentication (optional)', 'Basic animations', 'Email integration'],
     featured: true
   }, {
     name: 'Advanced Website',
-    price: '$1000-$3000',
+    price: '$1800-$3000',
     time: '10-20+ days',
     examples: 'Full e-commerce site, platform MVP, dashboard',
     features: ['15+ pages or dynamic sections', 'Advanced features (checkout, admin dashboard, filters, search)', 'API integration (Stripe, Firebase, WhatsApp, etc.)', 'Custom frontend/backend', 'Database + Authentication']

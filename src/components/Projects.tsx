@@ -4,46 +4,35 @@ export const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: 'Neural Interface',
-      description:
-        'A futuristic dashboard for monitoring neural network activities with real-time data visualization.',
-      image:
-        'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2034&q=80',
-      tags: ['React', 'D3.js', 'WebGL'],
-      liveUrl: '#',
-      repoUrl: '#',
-    },
-    {
-      id: 2,
       title: 'Game City Electronics',
       description:
         'E-commerce platform for electronics and gaming products. Explore a wide range of gadgets and accessories.',
       image:
-        'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80',
+        'https://mini.s-shot.ru/1024x768/800/jpeg/?https://www.gamecityelectronics.com/',
       tags: ['E-commerce', 'React', 'Shop'],
       liveUrl: 'https://www.gamecityelectronics.com/',
       repoUrl: '#',
     },
     {
-      id: 3,
+      id: 2,
       title: 'Mile Master Auto Care',
       description:
         'Full-service auto repair shop offering maintenance, diagnostics, and repairs for all vehicle makes and models. Trusted by the community for quality and reliability.',
       image:
-        'https://www.milemasterautocare.com/wp-content/uploads/2022/09/milemasterautocare-logo.png',
+        'https://mini.s-shot.ru/1024x768/800/jpeg/?https://www.milemasterautocare.com/',
       tags: ['Auto Repair', 'Maintenance', 'Diagnostics'],
       liveUrl: 'https://www.milemasterautocare.com/',
       repoUrl: '',
     },
     {
-      id: 4,
-      title: 'Data Nexus',
+      id: 3,
+      title: 'Yoko Designs',
       description:
-        'Secure data management platform with encryption and futuristic UI for sensitive information.',
+        'Full-stack web application featuring both frontend and backend components. Built with modern technologies and deployed on Vercel with a comprehensive backend system.',
       image:
-        'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-      tags: ['React', 'Node.js', 'Encryption'],
-      liveUrl: '#',
+        'https://mini.s-shot.ru/1024x768/800/jpeg/?https://yoko-front.vercel.app/',
+      tags: ['React', 'Full-Stack', 'Backend'],
+      liveUrl: 'https://yoko-front.vercel.app/',
       repoUrl: '#',
     },
   ]
@@ -82,12 +71,26 @@ const ProjectCard: React.FC<{
 }> = ({ project }) => {
   return (
     <div className="terminal-card bg-white dark:bg-black text-gray-800 dark:text-[#00FF00] rounded-md overflow-hidden shadow-lg dark:shadow-none hover:neon-glow-green transition-all duration-300 border border-gray-200 dark:border-[#006400]">
-      <div className="h-48 overflow-hidden">
+      <div className="h-48 overflow-hidden relative group">
         <img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 hover:scanline-effect"
         />
+        {/* Preview Overlay */}
+        {project.liveUrl !== '#' && (
+          <div className="absolute inset-0 bg-black bg-opacity-75 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center bg-[#00FF00] text-black px-6 py-3 rounded-lg font-mono font-bold hover:bg-white transition-colors duration-300 transform hover:scale-105"
+            >
+              <ExternalLinkIcon className="w-5 h-5 mr-2" />
+              View Live Demo
+            </a>
+          </div>
+        )}
       </div>
       <div className="p-6">
         <div className="terminal-header mb-2">
