@@ -25,7 +25,7 @@ export const Contact: React.FC = () => {
           setSending(false)
           if (form.current) form.current.reset()
         },
-        (error) => {
+        (_error) => {
           setError('Failed to send message. Please try again.')
           setSending(false)
         }

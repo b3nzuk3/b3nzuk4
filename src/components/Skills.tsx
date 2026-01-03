@@ -4,20 +4,29 @@ export const Skills: React.FC = () => {
     name: 'React',
     level: 90
   }, {
-    name: 'JavaScript',
-    level: 85
-  }, {
     name: 'TypeScript',
-    level: 80
+    level: 90
   }, {
     name: 'Next.js',
     level: 85
   }, {
+    name: 'React Native',
+    level: 85
+  }, {
+    name: 'Express.js',
+    level: 85
+  }, {
+    name: 'REST APIs',
+    level: 85
+  }, {
     name: 'Python',
-    level: 78
+    level: 90
   }, {
     name: 'Node.js',
-    level: 75
+    level: 90
+  }, {
+    name: 'JavaScript',
+    level: 85
   }, {
     name: 'Three.js',
     level: 70
@@ -55,6 +64,15 @@ export const Skills: React.FC = () => {
   }, {
     name: 'Jest',
     icon: '🧪'
+  }, {
+    name: 'Vercel',
+    icon: '▲'
+  }, {
+    name: 'Render',
+    icon: '🚀'
+  }, {
+    name: 'Expo',
+    icon: '📱'
   }];
   return <section id="skills" className="relative w-full py-20 bg-gray-50 dark:bg-gray-900">
       {/* Background Circuit Pattern */}

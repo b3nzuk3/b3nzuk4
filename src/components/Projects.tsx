@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ExternalLinkIcon, GithubIcon } from 'lucide-react'
 export const Projects: React.FC = () => {
   const projects = [
@@ -26,6 +26,17 @@ export const Projects: React.FC = () => {
     },
     {
       id: 3,
+      title: 'Zawamu Properties',
+      description:
+        'Real estate platform showcasing property listings and services in Kenya. Browse available properties, view details, and connect with real estate professionals.',
+      image:
+        'https://mini.s-shot.ru/1024x768/800/jpeg/?https://www.zawamuproperties.co.ke',
+      tags: ['Real Estate', 'Property Listings', 'Kenya'],
+      liveUrl: 'https://www.zawamuproperties.co.ke/',
+      repoUrl: '#',
+    },
+    {
+      id: 4,
       title: 'Yoko Designs',
       description:
         'Full-stack web application featuring both frontend and backend components. Built with modern technologies and deployed on Vercel with a comprehensive backend system.',
@@ -69,12 +80,28 @@ interface Project {
 const ProjectCard: React.FC<{
   project: Project
 }> = ({ project }) => {
+  const [imageError, setImageError] = useState(false)
+  const [imageSrc, setImageSrc] = useState(project.image)
+
+  const handleImageError = () => {
+    if (!imageError) {
+      // Try alternative screenshot service as fallback
+      const fallbackUrl = `https://mini.s-shot.ru/1024x768/800/jpeg/?${encodeURIComponent(project.liveUrl)}`
+      setImageSrc(fallbackUrl)
+      setImageError(true)
+    } else {
+      // If fallback also fails, use a placeholder
+      setImageSrc('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"%3E%3Crect fill="%23e5e7eb" width="1024" height="768"/%3E%3Ctext fill="%239ca3af" font-family="monospace" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3EImage Preview%3C/text%3E%3C/svg%3E')
+    }
+  }
+
   return (
     <div className="terminal-card bg-white dark:bg-black text-gray-800 dark:text-[#00FF00] rounded-md overflow-hidden shadow-lg dark:shadow-none hover:neon-glow-green transition-all duration-300 border border-gray-200 dark:border-[#006400]">
       <div className="h-48 overflow-hidden relative group">
         <img
-          src={project.image}
+          src={imageSrc}
           alt={project.title}
+          onError={handleImageError}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 hover:scanline-effect"
         />
         {/* Preview Overlay */}
